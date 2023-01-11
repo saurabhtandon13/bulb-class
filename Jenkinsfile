@@ -11,7 +11,7 @@ pipeline {
      stage ('Publish to DockerHub') {
       steps {
         withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
-          sh 'docker push frankisinfotech/jenkinsdemo:""$GIT_COMMIT""'
+          sh 'docker push frankisinfotech/bulbclass:""$GIT_COMMIT""'
          }
        }
      }
