@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage ('Build') {
       steps {
-        //sh 'printenv'
+        sh 'printenv'
         sh 'docker build -t frankisinfotech/bulbclass:""$GIT_COMMIT"" .'
       }
     }
