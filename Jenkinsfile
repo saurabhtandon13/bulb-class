@@ -7,6 +7,11 @@ pipeline {
         DOCKERHUB_USERNAME = "frankisinfotech"
         REPOSITORY_TAG = "${DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}:${BUILD_ID}"
     }
+    tools {
+        docker 'latest'
+        jdk 'your_jdk_version'
+        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
+    }
     
     stages {
             
