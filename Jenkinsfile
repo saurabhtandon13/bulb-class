@@ -9,16 +9,6 @@ pipeline {
     }
     
     stages {
-
-        stage ('Install Docker Client'){
-            docker.withTool("default") {
-
-//                   withDockerServer([credentialsId: "docker", uri: "tcp://13.40.236.22:2376"]) {
-
-//                       sh "printenv"
-//             }
-        }
-        }
             
             
         stage ('Build and Push Image') {
