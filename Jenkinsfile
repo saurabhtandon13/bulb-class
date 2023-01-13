@@ -9,7 +9,6 @@ pipeline {
     }
     tools {
         docker 'latest'
-        jdk 'your_jdk_version'
         'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
     }
     
