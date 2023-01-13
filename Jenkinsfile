@@ -1,16 +1,18 @@
 pipeline {
     agent any
     
+    tools {
+        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'docker'
+    }
+    
+    
     environment {
         SERVICE_NAME = "bulbclass"
         ORGANIZATION_NAME = "frankisinfotech"
         DOCKERHUB_USERNAME = "frankisinfotech"
         REPOSITORY_TAG = "${DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}:${BUILD_ID}"
     }
-    tools {
-        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'docker'
-    }
-    
+   
     stages {
             
             
