@@ -8,7 +8,7 @@ pipeline {
         REPOSITORY_TAG = "${DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}:${BUILD_ID}"
     }
     tools {
-        docker 'latest'
+        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'latest'
     }
     
     stages {
