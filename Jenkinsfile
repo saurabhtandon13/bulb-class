@@ -10,6 +10,7 @@ pipeline {
     stages {
        stage ('Build and Push Image') {
             steps {
+                   sh 'whoami'
                  withDockerRegistry([credentialsId: 'docker-login-creds', url: ""]) {
                    sh 'docker build -t ${REPOSITORY_TAG} .'
                    sh 'docker push ${REPOSITORY_TAG}'          
