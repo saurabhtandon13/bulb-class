@@ -26,13 +26,16 @@ pipeline {
                 """
             }
           }
-       stage ('Deploy to Cluster') {
+        
+       stage ('Deploy to Kubernetes Cluster') {
             steps {   
-                withKubeConfig([credentialsId: 'k8s-workload']) {
-                    sh 'kubectl apply -f deploy.yaml'
+                script {
+                    dir('kubernetes') {
+                          sh 'kubectl apply -f deploy.yaml'
+                       }
+                   }
                 }
-               }
-           }
+          }
         
     }
 }
