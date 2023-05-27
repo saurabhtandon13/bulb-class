@@ -28,14 +28,12 @@ pipeline {
           }
         
        stage ('Deploy to Kubernetes Cluster') {
-            steps {   
-                script {
-                    dir('kubernetes') {
-                          sh 'kubectl apply -f deploy.yaml'
-                       }
-                   }
+            steps { 
+                withKubeConfig([credentialsId: k8s-workload, serverUrl: https://192.168.5.40:6443]) {
+                    sh 'kubectl apply -f deploy.yaml'
                 }
-          }
+            }
+       }
         
     }
 }
