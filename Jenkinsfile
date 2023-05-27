@@ -27,12 +27,11 @@ pipeline {
             }
           }
        stage ('Deploy to Cluster') {
-            steps {
-                script {
-                    kubernetesDeploy(configs: "deploy.yaml", kubeconfigId: "k8s-workload")
-                }
-            }
-        }
+            steps {   
+                    withKubeConfig([credentialsId: 'k8s-workload'])
+                    sh 'kubectl apply -f deploy.yaml'
+               }
+           }
         
     }
 }
