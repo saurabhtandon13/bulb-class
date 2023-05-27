@@ -28,7 +28,9 @@ pipeline {
           }
        stage ('Deploy to Cluster') {
             steps {
-                sh " envsubst < ${WORKSPACE}/deploy.yaml | ./kubectl apply -f - "
+                script {
+                    kubernetesDeploy(configs: "deploy.yaml", kubeconfigId: "k8s-workload")
+                }
             }
         }
         
